@@ -19,8 +19,13 @@ samples, guidance on mobile development, and a full API reference.
 Pour Update le code avec une nouvelle branche :
 
 git init
+
 git add .
+
 git commit -m "n-ième"
+
 git branch -M nouvellebranche
+
 git remote add origin https://github.com/Henrisrn/AppFluter2.git
+
 git push -u origin nouvellebranche
