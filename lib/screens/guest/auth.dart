@@ -86,7 +86,7 @@ class _AuthState extends State<Auth> {
               child: RaisedButton(
                 onPressed: _pwd.length < 6
                     ? null
-                    : () => {widget.onChangedStep(0), print(_pwd)},
+                    : () => {widget.onChangedStep(3), print(_pwd)},
                 color: Theme.of(context).primaryColor,
                 padding: EdgeInsets.symmetric(
                   vertical: 10,

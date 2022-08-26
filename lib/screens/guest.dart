@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:myapp/screens/guest/auth.dart';
 import 'package:myapp/screens/guest/home.dart';
+import 'package:myapp/screens/guest/logout.dart';
 import 'package:myapp/screens/guest/term.dart';
 
 class Guest extends StatefulWidget {
@@ -24,6 +25,7 @@ class _GuestState extends State<Guest> {
       Home(onChangedStep: (indexx) => setState(() => index = indexx)),
       Term(onChangedStep: (indexx) => setState(() => index = indexx)),
       Auth(onChangedStep: (indexx) => setState(() => index = indexx)),
+      LogoutScreen(onChangedStep: (indexx) => setState(() => index = indexx)),
     ]);
   }
 
