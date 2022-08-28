@@ -18,8 +18,16 @@ class _LogoutScreenState extends State<LogoutScreen> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        title: Center(child: Text("")),
         backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () => (widget.onChangedStep(2)),
+          color: Colors.black,
+        ),
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -27,7 +35,7 @@ class _LogoutScreenState extends State<LogoutScreen> {
               child: Column(
                 children: [
                   RaisedButton(
-                    onPressed: () => ({widget.onChangedStep(0)}),
+                    onPressed: () => ({widget.onChangedStep(4)}),
                     color: Colors.grey,
                     child: Text("logout"),
                   )

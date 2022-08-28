@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 
 class Term extends StatefulWidget {
   final Function(int) onChangedStep;
-
+  final String terms;
   Term({
     Key? key,
+    required this.terms,
     required this.onChangedStep,
   }) : super(key: key);
 
@@ -35,7 +36,8 @@ class _TermState extends State<Term> {
         child:
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(), child: Text("Coucou")),
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Text(widget.terms)),
           RaisedButton(
               onPressed: () => ({widget.onChangedStep(2), print("Accepté")}),
               color: Colors.grey,

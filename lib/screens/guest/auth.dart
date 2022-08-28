@@ -1,12 +1,10 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Auth extends StatefulWidget {
-  final Function(int) onChangedStep;
+  final Function(int, String) onChangedStep;
 
-  Auth({Key? key, required this.onChangedStep}) : super(key: key);
+  const Auth({Key? key, required this.onChangedStep}) : super(key: key);
 
   @override
   State<Auth> createState() => _AuthState();
@@ -20,35 +18,35 @@ class _AuthState extends State<Auth> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("")),
+        title: const Center(child: Text("")),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
-          onPressed: () => (widget.onChangedStep(1)),
+          onPressed: () => (widget.onChangedStep(1, _pwd)),
           color: Colors.black,
         ),
       ),
       body: Center(
           child: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RichText(
               text: TextSpan(
                 text: "Pasword \n".toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
-                children: [],
+                children: const [],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Form(
@@ -67,17 +65,19 @@ class _AuthState extends State<Auth> {
                         hintText: "Pasword",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(40),
+                            // ignore: prefer_const_constructors
                             borderSide: BorderSide(
                               color: Colors.grey,
                             )),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(40),
+                            // ignore: prefer_const_constructors
                             borderSide: BorderSide(
                               color: Colors.grey,
                             )),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     )
                   ]),
@@ -86,9 +86,9 @@ class _AuthState extends State<Auth> {
               child: RaisedButton(
                 onPressed: _pwd.length < 6
                     ? null
-                    : () => {widget.onChangedStep(3), print(_pwd)},
+                    : () => {(widget.onChangedStep(3, _pwd))},
                 color: Theme.of(context).primaryColor,
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   vertical: 10,
                 ),
                 child: Center(

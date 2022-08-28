@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
-  final Function(int) onChangedStep;
+  final Function(int, String) onChangedStep;
 
-  Home({
+  const Home({
     Key? key,
     required this.onChangedStep,
   }) : super(key: key);
@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Titre application")),
+        title: const Center(child: Text("Titre application")),
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -50,16 +50,16 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Alors ça a de la gueule",
               style: TextStyle(
                 fontStyle: FontStyle.italic,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Form(
@@ -67,8 +67,8 @@ class _HomeState extends State<Home> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text("Entrez votre email"),
-                    SizedBox(
+                    const Text("Entrez votre email"),
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -94,7 +94,8 @@ class _HomeState extends State<Home> {
             ),
             Center(
               child: RaisedButton(
-                onPressed: () => ({widget.onChangedStep(1), print(email)}),
+                onPressed: () =>
+                    ({widget.onChangedStep(1, email), print(email)}),
                 color: Theme.of(context).primaryColor,
                 padding: EdgeInsets.symmetric(
                   vertical: 10,
