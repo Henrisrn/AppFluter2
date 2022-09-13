@@ -1,19 +1,23 @@
 import 'package:flutter/cupertino.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:myapp/screens/Cameraa.dart';
 import 'package:myapp/screens/Commonservice.dart';
 import 'package:myapp/screens/Service/User.dart';
 import 'package:myapp/screens/UserModel.dart';
 import 'package:myapp/screens/guest/Qrcode.dart';
+import 'package:myapp/screens/guest/Scandoc.dart';
+import 'package:myapp/screens/guest/Uploadscreen.dart';
 import 'package:myapp/screens/guest/auth.dart';
 import 'package:myapp/screens/guest/home.dart';
 import 'package:myapp/screens/guest/logout.dart';
 import 'package:myapp/screens/guest/term.dart';
 
 class Guest extends StatefulWidget {
-  const Guest({Key? key}) : super(key: key);
-
+  final List<CameraDescription> cameraa;
+  const Guest({Key? key, required this.cameraa}) : super(key: key);
   @override
   State<Guest> createState() => _GuestState();
 }
@@ -51,6 +55,14 @@ class _GuestState extends State<Guest> {
           LogoutScreen(
               onChangedStep: (indexx) => setState(() => index = indexx)),
           Qrcode(onChangedStep: (indexx) => setState(() => index = indexx)),
+          CameraScreen(
+            onChangedStep: (indexx) => setState(() => index = indexx),
+            cameraaa: widget.cameraa,
+          ),
+          Upload(
+            onChangedStep: (indexx) => setState(() => index = indexx),
+          ),
+          OCRPage(onChangedStep: (indexx) => setState(() => index = indexx)),
         ]))));
   }
 

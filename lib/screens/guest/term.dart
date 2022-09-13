@@ -38,12 +38,13 @@ class _TermState extends State<Term> {
           SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
               child: Text(widget.terms)),
-          RaisedButton(
+          ElevatedButton(
               onPressed: () => ({widget.onChangedStep(2), print("Accepté")}),
-              color: Colors.grey,
-              padding: EdgeInsets.symmetric(
-                vertical: 10,
-              ),
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.grey,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                  )),
               child: Center(
                   child: Text("Accept",
                       style: TextStyle(

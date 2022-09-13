@@ -36,7 +36,17 @@ class _QrcodeState extends State<Qrcode> {
       ),
       body: Column(
         children: [
-          FlatButton(onPressed: () async => _scan(), child: Text("Scan Button"))
+          TextButton(
+              onPressed: () async => _scan(), child: Text("Scan Button")),
+          TextButton(
+              onPressed: () async => widget.onChangedStep(5),
+              child: Text("Acces appareil photo")),
+          TextButton(
+              onPressed: () async => widget.onChangedStep(6),
+              child: Text("Upload de Dossier")),
+          TextButton(
+              onPressed: () async => widget.onChangedStep(7),
+              child: Text("Scan Document")),
         ],
       ),
     );

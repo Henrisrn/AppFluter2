@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:camera/camera.dart';
@@ -11,8 +12,11 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' show join;
 
 class CameraScreen extends StatefulWidget {
+  final Function(int) onChangedStep;
   final List<CameraDescription> cameraaa;
-  const CameraScreen({Key? key, required this.cameraaa}) : super(key: key);
+  const CameraScreen(
+      {Key? key, required this.cameraaa, required this.onChangedStep})
+      : super(key: key);
 
   @override
   State<CameraScreen> createState() => _CameraScreenState();
@@ -95,15 +99,13 @@ class _CameraScreenState extends State<CameraScreen> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
-        leading: _lastImage != null
-            ? FlatButton(
-                onPressed: () => setState(() => _lastImage = ''),
-                child: Icon(
-                  Icons.close,
-                  color: Colors.white,
-                ),
-              )
-            : null,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () => (widget.onChangedStep(4)),
+          color: Colors.black,
+        ),
       ),
       body: FutureBuilder(
         future: Initializecontroler,
@@ -116,13 +118,7 @@ class _CameraScreenState extends State<CameraScreen> {
                     child: Center(
                         child: AspectRatio(
                       aspectRatio: _controler.value.aspectRatio,
-                      child: _lastImage != ''
-                          ? Image(
-                              image: FileImage(
-                                File(_lastImage),
-                              ),
-                            )
-                          : CameraPreview(_controler),
+                      child: CameraPreview(_controler),
                     ))),
                 Positioned(
                   left: 55,

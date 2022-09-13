@@ -83,14 +83,15 @@ class _AuthState extends State<Auth> {
                   ]),
             ),
             Center(
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: _pwd.length < 6
                     ? null
                     : () => {(widget.onChangedStep(3, _pwd))},
-                color: Theme.of(context).primaryColor,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 10,
-                ),
+                style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).primaryColor,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                    )),
                 child: Center(
                   child: Text(
                     "Continue".toUpperCase(),

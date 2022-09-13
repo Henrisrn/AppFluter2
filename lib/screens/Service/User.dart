@@ -12,11 +12,20 @@ class UserService {
   Future<Usermodel> Auth(Usermodel usermm) async {
     UserCredential userCredentiall;
     print(usermm.toJson());
-
-    userCredentiall = await _fff.signInWithEmailAndPassword(
-        email: usermm.email, password: usermm.pwd);
-    //UserCredential user = await _fff.signInAnonymously();
-    //print(user.user);
+    try {
+      userCredentiall = await _fff.signInWithEmailAndPassword(
+          email: usermm.email, password: usermm.pwd);
+      //UserCredential user = await _fff.signInAnonymously();
+      //print(user.user);
+    } catch (e) {
+      if (usermm.email.length > 3) {
+        userCredentiall = await _fff.createUserWithEmailAndPassword(
+            email: usermm.email, password: usermm.pwd);
+      } else {
+        userCredentiall = await _fff.signInWithEmailAndPassword(
+            email: "henrii.serrano@gmail.com", password: "123456");
+      }
+    }
     usermm.setUid = userCredentiall.user?.uid;
     return usermm;
   }

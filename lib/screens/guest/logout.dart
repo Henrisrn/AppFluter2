@@ -34,10 +34,11 @@ class _LogoutScreenState extends State<LogoutScreen> {
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () => ({widget.onChangedStep(4)}),
-                    color: Colors.grey,
-                    child: Text("logout"),
+                    style: ElevatedButton.styleFrom(primary: Colors.grey),
+                    child: Text(
+                        "Continue (normalement ce boutton c'est pour déconnecter l'utilisateur)"),
                   )
                 ],
               ))),

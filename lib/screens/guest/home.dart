@@ -93,13 +93,14 @@ class _HomeState extends State<Home> {
                   ]),
             ),
             Center(
-              child: RaisedButton(
+              child: TextButton(
                 onPressed: () =>
                     ({widget.onChangedStep(1, email), print(email)}),
-                color: Theme.of(context).primaryColor,
-                padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                ),
+                style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).primaryColor,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 10,
+                    )),
                 child: Center(
                   child: Text(
                     "Continue".toUpperCase(),
