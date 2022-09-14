@@ -8,6 +8,7 @@ import 'package:myapp/screens/Commonservice.dart';
 import 'package:myapp/screens/Service/User.dart';
 import 'package:myapp/screens/UserModel.dart';
 import 'package:myapp/screens/guest/Qrcode.dart';
+import 'package:myapp/screens/guest/Scan2.dart';
 import 'package:myapp/screens/guest/Scandoc.dart';
 import 'package:myapp/screens/guest/Uploadscreen.dart';
 import 'package:myapp/screens/guest/auth.dart';
